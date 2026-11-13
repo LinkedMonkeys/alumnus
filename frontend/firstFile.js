@@ -27,9 +27,18 @@ app.get('/db', (req, res) => {
     res.render('mvc', {data: results});
 });
 
-// app.get('/db/:first_name',(req,res)=>){ // NEW - 11/13 attempt at calaccessing different nlast names
-//     const user = getUserStmt.get(req.params.first_name);
-// }
+app.get('/db/:first_name',(req,res)=> { // NEW - 11/13 attempt at calaccessing different nlast names
+    const user = getUserStmt.get(req.params.first_name);
+
+    res.render('mvc', {user: user});
+});
+
+
+
+
+
+
+
 
 
 // Router option 1
