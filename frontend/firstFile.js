@@ -19,12 +19,12 @@ app.set('view engine', 'ejs');
 
 // New Router for DB
 app.get('/db', (req, res) => {
-    const results = getVar.get();
+    const results = getVar.all();
 
     // db.get('SELECT * FROM People', (err, row) => {
     //     console.log(row);
     // });
-    res.render('mvc', {data: results});
+    res.render('allStudents', {data: results});
 });
 
 app.get('/db/:first_name',(req,res)=> { // NEW - 11/13 attempt at calaccessing different nlast names
