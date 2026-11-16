@@ -23,7 +23,7 @@ app.get('/db', (req, res) => {
 app.get('/db/:first_name',(req,res)=> { // NEW - 11/13 attempt at accessing different last names
     const user = getUserStmt.get(req.params.first_name);
 
-    res.render('mvc', {user: user});
+    res.render('user', {user: user});
 });
 
 
