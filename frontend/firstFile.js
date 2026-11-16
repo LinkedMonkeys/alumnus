@@ -10,10 +10,14 @@ const getUserStmt = db.prepare('SELECT * FROM People WHERE FirstName=?');
 
 app.set('view engine', 'ejs'); // Set up for .ejs
 
-app.get('/db', (req, res) => { // New Router for DB
-    const results = getVar.get();
+// New Router for DB
+app.get('/db', (req, res) => {
+    const results = getVar.all();
 
-    res.render('mvc', {data: results});
+    // db.get('SELECT * FROM People', (err, row) => {
+    //     console.log(row);
+    // });
+    res.render('allStudents', {data: results});
 });
 
 app.get('/db/:first_name',(req,res)=> { // NEW - 11/13 attempt at accessing different last names
