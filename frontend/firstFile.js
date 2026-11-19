@@ -32,14 +32,15 @@ app.get('/db/:first_name',(req,res)=> { // NEW - 11/13 attempt at accessing diff
 // With this, you can pass in /edit/1234 (or any code) to the end of the URL
 app.get('/edit/:code', (req, res) => {
     console.log("Someone just visited.");
+    const user = getUserStmt.get(req.params.code);
 
-    if(req.params.code[0] == 'a'){
-        type = 'alumnus';
-    } else {
-        type = 'admin';
-    }
+    // if(req.params.code[0] == 'a'){
+    //     type = 'alumnus';
+    // } else {
+    //     type = 'admin';
+    // }
 
-    res.render('edit', {code: req.params.code})
+    res.render('change-info', {user: user})
 });
 
 
